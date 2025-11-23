@@ -8,6 +8,7 @@ import * as Icons from "lucide-react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
+import Footer from "../components/Footer.jsx";
 
 const Home = () => {
   const buttonRef = useRef(null);
@@ -140,6 +141,65 @@ const Home = () => {
           ))}
         </div>
       </section>
+      {/* SECTION 4 */}
+      <section className="w-full bg-white py-16">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+          {/* LEFT IMAGE */}
+          <div className="w-full">
+            <img
+              // src={dummyImage}
+              src=""
+              alt="Security Illustration"
+              className="rounded-lg w-full object-cover shadow"
+            />
+          </div>
+
+          {/* RIGHT TEXT CONTENT */}
+          <div className="w-full">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4 leading-snug">
+              Security and Transparency You Can Trust
+            </h2>
+
+            <p className="text-gray-600 mb-6">
+              Your vote security prioritized with the use of state of the art
+              technology to ensure security and integrity in Elections.
+            </p>
+
+            <div className="space-y-5">
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Voter Privacy Commitment
+                </h3>
+                <p className="text-gray-500 text-sm">
+                  Some lorem ipsum dolor sit amet, consectetur adipiscing and
+                  more lorem ipsum to follow
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-lg">End to End encryption</h3>
+                <p className="text-gray-500 text-sm">
+                  Some lorem ipsum dolor sit amet, consectetur adipiscing and
+                  more lorem ipsum to follow
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-lg">
+                  Real time status information
+                </h3>
+                <p className="text-gray-500 text-sm">
+                  Some lorem ipsum dolor sit amet, consectetur adipiscing and
+                  more lorem ipsum to follow
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <Footer />
     </div>
   );
 };
