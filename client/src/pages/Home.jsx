@@ -54,8 +54,7 @@ const Home = () => {
 
   return (
     <div className="w-full">
-      {/* NAVBAR - stays fixed on scroll */}
-      <Navbar />
+     
 
       {/* HERO SECTION */}
       <section
@@ -199,7 +198,7 @@ const Home = () => {
       </section>
 
       {/* FOOTER */}
-      <Footer />
+     
     </div>
   );
 };
