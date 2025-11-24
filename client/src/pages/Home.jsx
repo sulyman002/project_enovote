@@ -58,7 +58,7 @@ const Home = () => {
 
       {/* HERO SECTION */}
       <section
-        style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "40%" }}
+        style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "190%" }}
         className="w-full h-screen bg-[#f4ebda] bg-no-repeat bg-center flex items-center"
       >
         <div className="w-full flex flex-col items-center justify-center text-center p-6">

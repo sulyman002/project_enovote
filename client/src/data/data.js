@@ -39,3 +39,33 @@ export const process = [
     desc: "Cast your vote securely and confirm submission.",
   },
 ];
+
+export const links = [
+  {
+    path: "/",
+    label: "Home"
+  }, 
+  {
+    path: "/dashboard",
+    label: "Dashboard"
+  },
+  {
+    path: "/education-hub",
+    label: "Education Hub"
+  },
+  {
+    path: "/about",
+    label: "About"
+  }
+]
+
+export const authLink = [
+  {
+    path: "/verify",
+    label: "Verify"
+  },
+  {
+    path: "/register",
+    label: "Register"
+  }
+]
