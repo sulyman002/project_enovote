@@ -96,7 +96,7 @@ const Home = () => {
           E-vote is built for transparency, security, and ease of use.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10 mx:6 md:mx-0">
           {transparency.map((item) => {
             const IconComponent = Icons[item?.icon];
             return (
