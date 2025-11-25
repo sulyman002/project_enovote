@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { IdCard, Info } from "lucide-react";
 import { toast } from "sonner";
-import { setItem } from "../utils/localStorage";
+import { getItem, setItem } from "../utils/localStorage";
 
 const Verify = () => {
   const navigate = useNavigate();
@@ -18,9 +18,17 @@ const Verify = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    const users = getItem("userDetails") || "[]";
+    const user = users.find((u) => u.id === String(data.verificationId));
+
+    if (!user) {
+      toast.error("User not found. Please register first.");
+      return;
+    }
     setItem("user", { id: data.verificationId });
+
     navigate("/app/home");
-    toast.success("you logged in successfully!")
+    toast.success("you logged in successfully!");
   };
 
   const date = new Date();

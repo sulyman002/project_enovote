@@ -3,8 +3,8 @@ import logo from "../assets/evoteLogo.svg";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { Mail } from "lucide-react";
-import { setItem } from "../utils/localStorage";
+import { IdCard, Info, Mail } from "lucide-react";
+import { getItem, setItem } from "../utils/localStorage";
 import { toast } from "sonner";
 
 const Register = () => {
@@ -17,10 +17,19 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    setItem("user", { id: data.verificationId, email: data.email });
-    navigate("/app/home");
-    toast.success("you logged in successfully!");
+    const users = getItem("userDetails") || "[]";
+    const exists = users.some((u) => u.id === String(data.verificationId));
+
+    if (exists) {
+      toast.error("User ID already registered. Please login.");
+      return;
+    }
+    users.push({ id: data.verificationId, email: data.email });
+    setItem("userDetails", users);
+    toast.success("Account created! Please login.");
+    navigate("/verify");
   };
+
   const date = new Date();
 
   const grabYear = date.getFullYear();
@@ -74,6 +83,7 @@ const Register = () => {
           </div>
 
           <form
+            noValidate
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-6"
           >
@@ -137,7 +147,7 @@ const Register = () => {
                   className="py-3 pl-1 rounded-md outline-0 flex-1"
                 />
               </div>
-              {errors.verificationId && (
+              {errors.email && (
                 <p className="text-red-500 text-sm">{errors.email.message}</p>
               )}
             </div>

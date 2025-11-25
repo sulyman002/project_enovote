@@ -6,7 +6,7 @@ const ProtectedRoute = ({children}) => {
     const userId = getItem("user");
 
     if(!userId) {
-        return <Navigate to="/" replace />
+        return <Navigate to="/verify" replace />
     }
   return children
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./pages/Home";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import EvoteLayout from "./Layout.jsx/EvoteLayout";
 import Verify from "./pages/Verify";
 import EducationHub from "./pages/EducationHub";
@@ -24,7 +24,14 @@ const App = () => {
             </PublicRoute>
           }
         />
-        <Route path="/" element={<Register />} />
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
         <Route
           path="app"
           element={
