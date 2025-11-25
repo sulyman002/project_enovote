@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { IdCard, Info } from "lucide-react";
 import { toast } from "sonner";
 import { getItem, setItem } from "../utils/localStorage";
+import authImg from "../assets/authImg.png";
 
 const Verify = () => {
   const navigate = useNavigate();
@@ -38,16 +39,16 @@ const Verify = () => {
   return (
     <div className="mx-auto container min-h-screen grid grid-cols-1 md:grid-cols-2">
       {/* Left Image Section */}
-      <div className="w-full h-full">
+      <div className="w-full h-full ">
         <img
-          // src="/mnt/data/auth.PNG"
+          // src={authImg}
           alt="Authentication"
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* Right Form Section */}
-      <div className="flex flex-col items-center justify-center p-8 bg-red-300">
+      <div className="flex flex-col items-center justify-center p-8 ">
         <div className="flex flex-col items-center justify-center gap-3">
           <img src={logo} alt="evote-logo" className="w-36 md:w-40" />
           <h2 className="text-xl font-semibold text-center mb-4">
@@ -66,7 +67,7 @@ const Verify = () => {
                 navigate("/verify");
               }}
               className={`flex-1 ${
-                location.pathname === "/verify" ? "bg-white text-gray-900" : ""
+                location.pathname === "/verify" ? "bg-white text-gray-900 shadow" : ""
               } text-39FF14 py-2 rounded-md font-semibold text-center cursor-pointer`}
             >
               Verify
@@ -76,7 +77,7 @@ const Verify = () => {
                 navigate("/");
               }}
               className={`flex-1 ${
-                location.pathname === "/" ? "bg-white text-gray-900" : ""
+                location.pathname === "/" ? "bg-white text-gray-900 shadow" : ""
               }  py-2 rounded-md font-semibold cursor-pointer text-center`}
             >
               Register

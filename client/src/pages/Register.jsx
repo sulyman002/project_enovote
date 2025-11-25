@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { IdCard, Info, Mail } from "lucide-react";
 import { getItem, setItem } from "../utils/localStorage";
 import { toast } from "sonner";
+import authImg from "../assets/authImg.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -16,18 +17,25 @@ const Register = () => {
     formState: { isSubmitting, errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    const users = getItem("userDetails") || "[]";
-    const exists = users.some((u) => u.id === String(data.verificationId));
+  const onSubmit = async (data) => {
+    try {
+      const users = getItem("userDetails") || [];
+      const exists = users.some((u) => u.id === data.verificationId.trim());
 
-    if (exists) {
-      toast.error("User ID already registered. Please login.");
-      return;
+      if (exists) {
+        toast.error("User ID already registered. Please login.");
+        return;
+      }
+
+      users.push({ id: data.verificationId.trim(), email: data.email.trim() });
+      setItem("userDetails", users);
+
+      toast.success("Account created! Please login.");
+      navigate("/verify");
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong!");
     }
-    users.push({ id: data.verificationId, email: data.email });
-    setItem("userDetails", users);
-    toast.success("Account created! Please login.");
-    navigate("/verify");
   };
 
   const date = new Date();
@@ -39,14 +47,14 @@ const Register = () => {
       {/* Left Image Section */}
       <div className="w-full h-full">
         <img
-          src="/mnt/data/auth.PNG"
+        //   src={authImg}
           alt="Authentication"
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* Right Form Section */}
-      <div className="flex flex-col items-center justify-center p-8 bg-red-300">
+      <div className="flex flex-col items-center justify-center p-8 ">
         <div className="flex flex-col items-center justify-center gap-3">
           <img src={logo} alt="evote-logo" className="w-35 md:w-40" />
           <h2 className="text-xl font-semibold text-center mb-4">
@@ -65,7 +73,7 @@ const Register = () => {
                 navigate("/verify");
               }}
               className={`flex-1 ${
-                location.pathname === "/verify" ? "bg-white text-gray-900" : ""
+                location.pathname === "/verify" ? "bg-white text-gray-900 shadow" : ""
               } text-39FF14 py-2 rounded-md font-semibold text-center cursor-pointer`}
             >
               Verify
@@ -75,7 +83,7 @@ const Register = () => {
                 navigate("/");
               }}
               className={`flex-1 ${
-                location.pathname === "/" ? "bg-white text-gray-900" : ""
+                location.pathname === "/" ? "bg-white text-gray-900 shadow" : ""
               }  py-2 rounded-md font-semibold cursor-pointer text-center`}
             >
               Register
