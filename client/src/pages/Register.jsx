@@ -3,11 +3,27 @@ import logo from "../assets/evoteLogo.svg";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Mail } from "lucide-react";
+import { setItem } from "../utils/localStorage";
+import { toast } from "sonner";
 
 const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // const { register } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    setItem("user", { id: data.verificationId, email: data.email });
+    navigate("/app/home");
+    toast.success("you logged in successfully!");
+  };
+  const date = new Date();
+
+  const grabYear = date.getFullYear();
 
   return (
     <div className="mx-auto container min-h-screen grid grid-cols-1 md:grid-cols-2">
@@ -33,50 +49,114 @@ const Register = () => {
           </p>
         </div>
 
-        <form className="bg-[#D9D9D9] rounded-xl shadow px-6 py-8 w-full max-w-md mx-auto">
+        <div className="bg-[#D9D9D9] rounded-xl shadow-lg px-6 py-8 w-full max-w-md mx-auto">
           <div className="flex gap-2 mb-4 bg-[#D1CECE] rounded-md p-1">
             <div
               onClick={() => {
                 navigate("/verify");
               }}
               className={`flex-1 ${
-                location.pathname === "/verify"
-                  ? "bg-white text-gray-900"
-                  : null
+                location.pathname === "/verify" ? "bg-white text-gray-900" : ""
               } text-39FF14 py-2 rounded-md font-semibold text-center cursor-pointer`}
             >
               Verify
             </div>
             <div
               onClick={() => {
-                navigate("/register");
+                navigate("/");
               }}
               className={`flex-1 ${
-                location.pathname === "/register"
-                  ? "bg-white text-gray-900"
-                  : null
+                location.pathname === "/" ? "bg-white text-gray-900" : ""
               }  py-2 rounded-md font-semibold cursor-pointer text-center`}
             >
               Register
             </div>
           </div>
 
-          <label className="text-sm font-medium text-gray-700">
-            Verification ID
-          </label>
-          <input
-            type="text"
-            placeholder="Verification ID"
-            className="w-full mt-1 mb-4 p-3 rounded-md border border-gray-300"
-          />
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-6"
+          >
+            <div className="flex flex-col w-full gap-2">
+              <div className="flex items-center text-gray-700">
+                <p className="text-sm font-medium  flex-1">Verification ID</p>
+                <Info size={14} className="" />
+              </div>
+              <div className="flex items-center justify-center gap-3 border border-gray-400  rounded-md px-2">
+                <IdCard size={24} className="text-gray-500" />
 
-          <button className="w-full bg-green-500 text-white py-3 rounded-md font-semibold shadow">
-            Verify
-          </button>
-        </form>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  {...register("verificationId", {
+                    required: "Verification ID is required",
+                    minLength: {
+                      value: 11,
+                      message: "ID must be 11 digits",
+                    },
+                    maxLength: {
+                      value: 11,
+                      message: "ID must be 11 digits",
+                    },
+                    pattern: {
+                      value: /^[0-9]+$/,
+                      message: "Only numbers are allowed",
+                    },
+                  })}
+                  placeholder="Verification ID"
+                  className="py-3 pl-1 rounded-md outline-0 flex-1"
+                />
+              </div>
+              {errors.verificationId && (
+                <p className="text-red-500 text-sm">
+                  {errors.verificationId.message}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-col w-full gap-2">
+              <div className="flex items-center text-gray-700">
+                <p className="text-sm font-medium  flex-1">Email Address</p>
+              </div>
+              <div className="flex items-center justify-center gap-3 border border-gray-400  rounded-md px-2">
+                <Mail size={24} className="text-gray-500" />
+
+                <input
+                  type="email"
+                  {...register("email", {
+                    required: "Email is required. ",
+                    validate: (value) => {
+                      const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                      return (
+                        pattern.test(value) ||
+                        "Please enter a valid email address. "
+                      );
+                    },
+                  })}
+                  placeholder="Enter your email"
+                  className="py-3 pl-1 rounded-md outline-0 flex-1"
+                />
+              </div>
+              {errors.verificationId && (
+                <p className="text-red-500 text-sm">{errors.email.message}</p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className={` ${
+                isSubmitting
+                  ? "bg-[#39FF14B2]/50 cursor-not-allowed"
+                  : "bg-[#39FF14B2] cursor-pointer"
+              }  w-full   text-white py-3 rounded-md font-semibold shadow`}
+            >
+              {isSubmitting ? "Registering" : " Register"}
+            </button>
+          </form>
+        </div>
 
         <p className="text-center text-gray-400 text-xs mt-6">
-          © 2025 E-VOTE SYSTEM
+          © {grabYear} E-VOTE SYSTEM
         </p>
       </div>
     </div>
