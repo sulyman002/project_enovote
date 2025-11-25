@@ -42,19 +42,19 @@ export const process = [
 
 export const links = [
   {
-    path: "/",
+    path: "app/home",
     label: "Home"
   }, 
   {
-    path: "/dashboard",
+    path: "app/dashboard",
     label: "Dashboard"
   },
   {
-    path: "/education-hub",
+    path: "app/education-hub",
     label: "Education Hub"
   },
   {
-    path: "/about",
+    path: "app/about",
     label: "About"
   }
 ]

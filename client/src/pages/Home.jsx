@@ -9,6 +9,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 import Footer from "../components/Footer.jsx";
+import trust from "../assets/trust.png";
 
 const Home = () => {
   const buttonRef = useRef(null);
@@ -54,8 +55,6 @@ const Home = () => {
 
   return (
     <div className="w-full">
-     
-
       {/* HERO SECTION */}
       <section
         style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "190%" }}
@@ -146,8 +145,7 @@ const Home = () => {
           {/* LEFT IMAGE */}
           <div className="w-full">
             <img
-              // src={dummyImage}
-              src=""
+              src={trust}
               alt="Security Illustration"
               className="rounded-lg w-full object-cover shadow"
             />
@@ -198,7 +196,6 @@ const Home = () => {
       </section>
 
       {/* FOOTER */}
-     
     </div>
   );
 };
