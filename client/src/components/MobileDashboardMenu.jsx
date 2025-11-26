@@ -47,8 +47,9 @@ const MobileDashboardMenu = ({ handleOpenMobileAside, openAside }) => {
                 <Link
                   key={type.id}
                   to={type.route}
+                  onClick={handleOpenMobileAside}
                   className={`flex items-center gap-3 text-base font-500 font-semibold transition-colors  ${
-                    location.pathname === type.path
+                    location.pathname === type.route
                       ? " text-[#28C308] "
                       : " text-gray-500 "
                   }`}
@@ -56,7 +57,7 @@ const MobileDashboardMenu = ({ handleOpenMobileAside, openAside }) => {
                   <Icon
                     size={24}
                     className={` ${
-                      location.pathname === type.path
+                      location.pathname === type.route
                         ? "text-[#28C308]"
                         : "text-gray-500"
                     } `}
