@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import heroBg from "../assets/heroBg.png";
 import { process, transparency } from "../data/data.js";
-
+import { useNavigate } from "react-router-dom";
 import * as Icons from "lucide-react";
 
 import { useRef } from "react";
@@ -12,6 +12,7 @@ import Footer from "../components/Footer.jsx";
 import trust from "../assets/trust.png";
 
 const Home = () => {
+  const navigate = useNavigate();
   const buttonRef = useRef(null);
   const arrowRef = useRef(null);
 
@@ -70,6 +71,7 @@ const Home = () => {
             voice.
           </p>
           <button
+          onClick={() => navigate("/app/dashboard")}
             ref={buttonRef}
             className="flex items-center rounded-lg cursor-pointer text-base text-gray-900 "
           >

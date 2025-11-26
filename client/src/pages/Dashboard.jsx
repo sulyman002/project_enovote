@@ -8,6 +8,7 @@ import { useLocation } from "react-router-dom";
 import DashboardAside from "../components/DashboardAside";
 import MobileDashboardMenu from "../components/MobileDashboardMenu";
 
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,11 +43,13 @@ const Dashboard = () => {
         </div>
       ) : (
         <>
-          <div className="w-full h-screen py-12 mx-auto px-6 container">
+          <div className="w-full min-h-screen py-12 mx-auto px-6 container">
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
-              <div className="flex items-center gap-3">
-                <ArrowLeft size={22} className="cursor-pointer" />
+              <div  className="flex items-center gap-3">
+               <div onClick={() => navigate("/app/home")} className="">
+                 <ArrowLeft size={22} className="cursor-pointer" />
+               </div>
                 <h1 className="md:text-2xl  font-bold">Voter Dashboard</h1>
               </div>
 

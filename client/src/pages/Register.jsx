@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { IdCard, Info, Mail } from "lucide-react";
 import { getItem, setItem } from "../utils/localStorage";
 import { toast } from "sonner";
-import authImg from "../assets/authImg.png";
+// import authImg from "../assets/authImg.png";
 
 const Register = () => {
   const navigate = useNavigate();
