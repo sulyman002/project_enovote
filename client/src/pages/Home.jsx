@@ -71,7 +71,7 @@ const Home = () => {
           </p>
           <button
             ref={buttonRef}
-            className="flex items-center rounded-lg cursor-pointer text-base text-black "
+            className="flex items-center rounded-lg cursor-pointer text-base text-gray-900 "
           >
             <p className="cursor-pointer uppercase border border-gray-700/50 px-6 py-3 font-semibold rounded-md bg-[#39FF14B2]">
               Get Started

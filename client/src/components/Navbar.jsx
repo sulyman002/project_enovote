@@ -9,7 +9,7 @@ const Navbar = () => {
   const loaction = useLocation();
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#D9D9D9] border-b border-gray-400 shadow z-50">
+    <nav className="relative w-full bg-[#D9D9D9] border-b border-gray-400 shadow z-50">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         {/* Logo */}
         <img src={logo} alt="evote-logo" className="w-35 md:w-40" />
@@ -17,37 +17,40 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 font-medium">
           {links.map((link, index) => (
-          <ul className="">
-            <Link
-              to={link.path}
-              key={index}
-              className={`cursor-pointer ${
-                location.pathname === link.path ? "text-blue-400" : "text-black"
-              }`}
-            >
-              {link.label}
-            </Link>
-          </ul>
-        ))}
+            <ul key={index} className="">
+              <Link
+                to={link.path}
+                className={`cursor-pointer ${
+                  location.pathname === link.path
+                    ? "text-blue-400"
+                    : "text-gray-900"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </ul>
+          ))}
         </div>
 
         {/* Register Button */}
         <div className="flex items-center gap-5 text-base font-500 font-semibold">
           {authLink.map((authL, index) => (
-          <div
-            key={index}
-            
-            className=""
-          >
-            <Link to={authL.path} className={`cursor-pointer hidden md:block  border shadow ${authL.label === "Register" ? "bg-[#39FF14B2]" : "bg-[bg-[#D9D9D9]"} border-gray-400 text-black px-5 py-2 rounded-lg transition hover:scale-[0.9] duration-300`}>
-              {authL.label}
-            </Link>
-            
-          </div>
-        ))}
+            <div key={index} className="">
+              <Link
+                to={authL.path}
+                className={`cursor-pointer hidden md:block  border shadow ${
+                  authL.label === "Register"
+                    ? "bg-[#39FF14B2]"
+                    : "bg-[bg-[#D9D9D9]"
+                } border-gray-400 text-gray-900 px-5 py-2 rounded-lg transition hover:scale-[0.9] duration-300`}
+              >
+                {authL.label}
+              </Link>
+            </div>
+          ))}
         </div>
 
-        {/* <button className="cursor-pointer hidden md:block  hover:bg-[#39FF14B2]/50 shadow text-black px-5 py-2 rounded-lg transition-all hover:scale-[0.9] duration-300">
+        {/* <button className="cursor-pointer hidden md:block  hover:bg-[#39FF14B2]/50 shadow text-gray-900 px-5 py-2 rounded-lg transition-all hover:scale-[0.9] duration-300">
               Register
             </button> */}
 
@@ -68,23 +71,24 @@ const Navbar = () => {
         //     </li>
         //     <li className="cursor-pointer hover:text-green-600">About</li>
         //   </ul>
-        <div className="md:hidden bg-white shadow px-6 py-4 space-y-6 animate-slideDown">
+        <div className="fixed top-18 left-0 right-0 md:hidden bg-white shadow px-6 py-4 space-y-6 animate-slideDown">
           {links.map((link, index) => (
-          <ul className="flex flex-col gap-4 font-medium">
-            <Link
-              to={link.path}
-              key={index}
-              className={`cursor-pointer hover:text-blue-400 ${
-                location.pathname === link.path ? "text-blue-400" : "text-black"
-              }`}
-            >
-              {link.label}
-            </Link>
-          </ul>
-        ))}
+            <ul className="flex flex-col gap-4 font-medium">
+              <Link
+                to={link.path}
+                key={index}
+                className={`cursor-pointer hover:text-blue-400 ${
+                  location.pathname === link.path
+                    ? "text-blue-400"
+                    : "text-gray-900"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </ul>
+          ))}
         </div>
 
-           
         // </div>
       )}
     </nav>
@@ -97,5 +101,3 @@ export default Navbar;
 //           <button className="mt-6 w-full bg-green-600 text-white py-2 rounded-lg">
 //             Register
 //           </button>
-
-

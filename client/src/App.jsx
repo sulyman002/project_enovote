@@ -10,6 +10,11 @@ import Register from "./pages/Register";
 import { Toaster } from "sonner";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import Presidential from "./pages/Dashboard/Presidential";
+import Senate from "./pages/Dashboard/Senate";
+import HouseOfReps from "./pages/Dashboard/HouseOfReps";
+import LocalGovt from "./pages/Dashboard/LocalGovt";
+import Governorship from "./pages/Dashboard/Governorship";
 
 const App = () => {
   return (
@@ -42,7 +47,14 @@ const App = () => {
         >
           <Route index element={<Navigate to="home" replace />} />
           <Route path="home" element={<Home />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index element={<Navigate to="presidential" replace />} />
+            <Route path="presidential" element={<Presidential />} />
+            <Route path="governorship" element={<Governorship />} />
+            <Route path="senate" element={<Senate />} />
+            <Route path="house-of-rep" element={<HouseOfReps />} />
+            <Route path="local-govt" element={<LocalGovt />} />
+          </Route>
           <Route path="education-hub" element={<EducationHub />} />
           <Route path="about" element={<About />} />
         </Route>
