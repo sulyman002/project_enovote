@@ -15,6 +15,10 @@ import Senate from "./pages/Dashboard/Senate";
 import HouseOfReps from "./pages/Dashboard/HouseOfReps";
 import LocalGovt from "./pages/Dashboard/LocalGovt";
 import Governorship from "./pages/Dashboard/Governorship";
+import Results from "./pages/Results";
+import Profile from "./pages/Profile";
+import ProfileSetting from "./pages/AccountSettings/ProfileSetting";
+import Notifications from "./pages/AccountSettings/Notifications";
 
 const App = () => {
   return (
@@ -57,6 +61,11 @@ const App = () => {
           </Route>
           <Route path="education-hub" element={<EducationHub />} />
           <Route path="about" element={<About />} />
+          <Route path="results" element={<Results />} />
+          <Route path="profile" element={<Profile />}>
+            <Route path="profile-setting" element={<ProfileSetting />} />
+            <Route path="notification" element={<Notifications />} />
+          </Route>
         </Route>
       </Routes>
     </div>

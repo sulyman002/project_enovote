@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { links, authLink } from "../data/data";
+import { links } from "../data/data";
 import logo from "../assets/evoteLogo.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import profileAvatar from "../assets/profileAvatar.png";
+import { setItem } from "../utils/localStorage";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   const handleOpen = () => {
     setOpen((prev) => !prev);
   };
   const location = useLocation();
+
+  const handleLogout = () => {
+    setItem("user", null);
+    navigate("/verify");
+    toast.success("Logout successful. Stay safe.");
+  };
 
   return (
     <nav className="relative w-full bg-[#D9D9D9] border-b border-gray-400 shadow z-50">
@@ -18,7 +28,7 @@ const Navbar = () => {
         <img src={logo} alt="evote-logo" className="w-35 md:w-40" />
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 font-medium">
+        <div className="hidden md:flex items-center gap-8 font-medium">
           {links.map((link, index) => (
             <ul key={index} className="">
               <Link
@@ -33,24 +43,27 @@ const Navbar = () => {
               </Link>
             </ul>
           ))}
-        </div>
 
-        {/* Register Button */}
-        <div className="flex items-center gap-5 text-base font-500 font-semibold">
-          {authLink.map((authL, index) => (
-            <div key={index} className="">
-              <Link
-                to={authL.path}
-                className={`cursor-pointer hidden md:block  border shadow ${
-                  authL.label === "Register"
-                    ? "bg-[#39FF14B2]"
-                    : "bg-[bg-[#D9D9D9]"
-                } border-gray-400 text-gray-900 px-5 py-2 rounded-lg transition hover:scale-[0.9] duration-300`}
-              >
-                {authL.label}
-              </Link>
-            </div>
-          ))}
+          {/* profile icon */}
+          <div
+            onClick={() => {
+              navigate("/app/profile");
+            }}
+            className="cursor-pointer ml-10 flex items-center justify-center bg-[#F0ECEB] rounded-full w-10 h-10 text-base font-500 text-center text-[#5C2E1B] font-medium  "
+          >
+            <img
+              src={profileAvatar}
+              alt="profile-image"
+              className="w-full h-full"
+            />
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="cursor-pointer hidden md:block  border bg-[#39FF14B2] shadow border-gray-400 text-gray-900 px-5 py-2 rounded-lg transition hover:scale-[0.9] duration-300"
+          >
+            Logout
+          </button>
         </div>
 
         {/* Mobile Hamburger */}
@@ -61,7 +74,27 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="fixed top-18 left-0 right-0 md:hidden bg-white shadow px-6 py-4 space-y-6 animate-slideDown">
+        <div className="fixed top-18 left-0 right-0 md:hidden bg-white shadow px-6 py-4 space-y-8 animate-slideDown">
+          <div className="flex items-center gap-4.5  ">
+            <div
+              onClick={() => {
+                handleOpen();
+                navigate("/app/profile");
+              }}
+              className="cursor-pointer flex items-center justify-center bg-[#F0ECEB] rounded-full w-10 h-10 text-base font-500 text-center text-[#5C2E1B] font-medium  "
+            >
+              <img
+                src={profileAvatar}
+                alt="profile-image"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="flex flex-col gap-1 text-xs ">
+              <p className="text-gray-900 text-xl font-medium ">User name</p>
+              <p className="text-base text-gray-600">Secure Voting Platform</p>
+            </div>
+          </div>
+
           {links.map((link, index) => (
             <ul className="flex flex-col gap-4 font-medium">
               <Link
@@ -78,6 +111,13 @@ const Navbar = () => {
               </Link>
             </ul>
           ))}
+
+          <button
+            onClick={handleLogout}
+            className="cursor-pointer w-full border bg-[#39FF14B2] shadow border-gray-400 text-gray-900 px-5 py-2 rounded-lg transition hover:scale-[0.9] duration-300"
+          >
+            Logout
+          </button>
         </div>
 
         // </div>

@@ -1,6 +1,6 @@
 import dash1 from "../assets/dash1.png";
 import dash2 from "../assets/dash2.png";
-import guide from "../assets/guide.png"
+import guide from "../assets/guide.png";
 
 export const transparency = [
   {
@@ -60,6 +60,10 @@ export const links = [
   {
     path: "/app/about",
     label: "About",
+  },
+  {
+    path: "/app/results",
+    label: "Results",
   },
 ];
 
@@ -203,3 +207,38 @@ export const faqs = [
       "You can reach out to our support team, restart the application, or check your internet connection.",
   },
 ];
+
+export const principles = [
+  {
+    icon: "Search",
+    title: "Our core Principles",
+    desc: "Committed to upholding the highest standard to ensure every vote is secure, with a transparent process and voter empowerment.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Transparency",
+    desc: "Easy and quick registration for upcoming elections through the secure portal",
+  },
+  {
+    icon: "Users",
+    title: "Guaranteed Security",
+    desc: "Committed to upholding the highest standard to ensure every vote is secure, with a transparent process and voter empowerment.",
+  },
+];
+
+export const accountSettings = [
+  {
+    id: 1,
+    route: "/app/profile/profile-setting",
+    title: "Profile",
+    icon: "CircleUser",
+  },
+  {
+    id: 2,
+    route: "/app/profile/notification",
+    title: "Notifications",
+    icon: "BellDot",
+  },
+];
+
+

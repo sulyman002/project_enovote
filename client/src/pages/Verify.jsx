@@ -26,10 +26,11 @@ const Verify = () => {
       toast.error("User not found. Please register first.");
       return;
     }
-    setItem("user", { id: data.verificationId });
-
-    navigate("/app/home");
-    toast.success("you logged in successfully!");
+    if (user) {
+      setItem("user", { id: data.verificationId });
+      navigate("/app/home");
+      toast.success("you logged in successfully!");
+    }
   };
 
   const date = new Date();
@@ -67,7 +68,9 @@ const Verify = () => {
                 navigate("/verify");
               }}
               className={`flex-1 ${
-                location.pathname === "/verify" ? "bg-white text-gray-900 shadow" : ""
+                location.pathname === "/verify"
+                  ? "bg-white text-gray-900 shadow"
+                  : ""
               } text-39FF14 py-2 rounded-md font-semibold text-center cursor-pointer`}
             >
               Verify
