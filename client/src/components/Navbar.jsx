@@ -25,7 +25,9 @@ const Navbar = () => {
     <nav className="relative w-full bg-[#D9D9D9] border-b border-gray-400 shadow z-50">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         {/* Logo */}
-        <img src={logo} alt="evote-logo" className="w-35 md:w-40" />
+        <div onClick={() => navigate("/app/home")} className="">
+          <img src={logo} alt="evote-logo" className="w-35 md:w-40" />
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 font-medium">

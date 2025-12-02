@@ -63,6 +63,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="results" element={<Results />} />
           <Route path="profile" element={<Profile />}>
+          <Route index element={<Navigate to="profile-setting" replace />} />
             <Route path="profile-setting" element={<ProfileSetting />} />
             <Route path="notification" element={<Notifications />} />
           </Route>

@@ -1,6 +1,12 @@
 import dash1 from "../assets/dash1.png";
 import dash2 from "../assets/dash2.png";
 import guide from "../assets/guide.png";
+import akinfe from "../assets/akinfe.png";
+import apc from "../assets/apc.png";
+import pdp from "../assets/pdp.png";
+import sdp from "../assets/sdp.png";
+import lp from "../assets/lp.png";
+import seyi from "../assets/seyi.jpg";
 
 export const transparency = [
   {
@@ -240,5 +246,29 @@ export const accountSettings = [
     icon: "BellDot",
   },
 ];
-
-
+export const contestants = [
+  { id: 1, name: "Akinfewa John", party: "PDP", img: akinfe, partyLogo: pdp },
+  {
+    id: 2,
+    name: "Seyi Makinde",
+    party: "APC",
+    img: seyi,
+    partyLogo: apc,
+  },
+  {
+    id: 3,
+    name: "Usman Bello",
+    party: "APDI",
+    img: akinfe,
+    partyLogo: sdp,
+  },
+  {
+    id: 4,
+    name: "Kola Williams",
+    party: "SDP",
+    img: seyi,
+    partyLogo: lp,
+  },
+  { id: 5, name: "Sarah Ogunleye", party: "APC", img: seyi, partyLogo: apc },
+  { id: 6, name: "Mohammed Idris", party: "PDP", img: akinfe, partyLogo: pdp },
+];
