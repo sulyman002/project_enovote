@@ -4,7 +4,15 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
- 
 }
 
+@layer utilities {
+  @media print {
+    button {
+      display: none !important;
+    }
+    .bg-[#34405499]/60 {
+      background: none !important;
+    }
+  }
+}

@@ -31,7 +31,7 @@ const VoteCounted = () => {
   const timeSubmitted = date.toLocaleTimeString();
 
   const handlePrint = useReactToPrint({
-    content: () => printRef.current,
+    contentRef: printRef,
   });
   return (
     <div className="fixed flex items-center justify-center z-50 inset-0 bg-[#34405499]/60 backdrop-blur-[2px]">
@@ -60,7 +60,7 @@ const VoteCounted = () => {
           </h1>
           <p className="text-center text-gray-600">
             Thank you {selected?.name || "user name"}, for Participating in the{" "}
-            {selected.electionType}
+            {selected?.electionType || "Gubernatorial"}
           </p>
         </div>
 
@@ -108,8 +108,8 @@ const VoteCounted = () => {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-2">
-          This code above is anonymous and encrypted, <br />generated as proof of your
-          submission.
+          This code above is anonymous and encrypted, <br />
+          generated as proof of your submission.
         </p>
 
         {/* BUTTONS */}
@@ -120,7 +120,10 @@ const VoteCounted = () => {
           >
             Return to Dashboard
           </button>
-          <button onClick={handlePrint} className="border px-4 py-2 rounded bg-[#D9D9D966] font-500 font-medium hover:bg-[#D9D9D966]/80 border-gray-300 flex items-center gap-2 text-gray-900">
+          <button
+            onClick={handlePrint}
+            className="border px-4 py-2 rounded bg-[#D9D9D966] font-500 font-medium hover:bg-[#D9D9D966]/80 border-gray-300 flex items-center gap-2 text-gray-900"
+          >
             <Printer size={14} />
             <span>Print Confirmation</span>
           </button>
