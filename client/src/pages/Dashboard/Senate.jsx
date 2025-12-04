@@ -1,8 +1,12 @@
 import React from 'react'
+import { senate } from '../../data/data';
+import VotingDashboard from '../../components/VotingDashboard';
 
 const Senate = () => {
   return (
-    <div>Senate</div>
+    <>
+      <VotingDashboard contestants={senate} electionType="Senate" />
+    </>
   )
 }
 

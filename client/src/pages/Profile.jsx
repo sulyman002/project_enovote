@@ -1,18 +1,17 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import ProfileAside from '../components/ProfileAside';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import ProfileAside from "../components/ProfileAside";
 
 const Profile = () => {
   return (
-    <div className='flex mx-auto container'>
-        <ProfileAside />
-        <p>afjk</p>
+    <div className="flex mx-auto container">
+      <ProfileAside />
 
-        <div className="flex-1">
-            <Outlet />
-        </div>
+      <div className="flex-1">
+        <Outlet />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

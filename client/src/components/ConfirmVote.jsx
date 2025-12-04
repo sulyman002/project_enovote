@@ -1,7 +1,14 @@
 import { Vote } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import VoteCounted from "./VoteCounted";
+import useAppContext from "../context/useAppContext";
 
-const ConfirmVote = ({ selected, handleConfirmVote }) => {
+const ConfirmVote = ({ handleConfirmVote }) => {
+  const [castVote, setCastVote] = useState(false);
+  const { selected } = useAppContext();
+  const handleCastVote = () => {
+    selected ? setCastVote(true) : setCastVote(false)
+  }
   return (
     <div className="fixed flex items-center justify-center z-50 inset-0 bg-[#34405499]/60 backdrop-blur-[2px]">
       <div className="bg-white  mx-8 rounded-xl flex flex-col items-center justify-center gap-4 p-8">
@@ -29,7 +36,7 @@ const ConfirmVote = ({ selected, handleConfirmVote }) => {
           
           </button>
           <button
-            
+            onClick={() => handleCastVote()}
             className="cursor-pointer flex items-center gap-2 bg-[#39FF14B2] shadow border border-gray-200 font-700 font-bold text-gray-900 text-sm px-4 py-2 rounded-lg"
           >
             Yes, Cast Vote
@@ -37,6 +44,11 @@ const ConfirmVote = ({ selected, handleConfirmVote }) => {
           </button>
         </div>
       </div>
+
+      {/* Vote Counted */}
+      {castVote && (
+        <VoteCounted />
+      )}
     </div>
   );
 };

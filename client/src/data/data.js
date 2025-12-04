@@ -7,6 +7,12 @@ import pdp from "../assets/pdp.png";
 import sdp from "../assets/sdp.png";
 import lp from "../assets/lp.png";
 import seyi from "../assets/seyi.jpg";
+import senate1 from "../assets/senate1.jpg";
+import senate2 from "../assets/senate2.jpg";
+import senate3 from "../assets/senate3.jpg";
+import senate4 from "../assets/senate4.jpg";
+import senate5 from "../assets/senate5.jpg";
+import senate6 from "../assets/senate6.jpg";
 
 export const transparency = [
   {
@@ -247,9 +253,17 @@ export const accountSettings = [
   },
 ];
 export const contestants = [
-  { id: 1, name: "Akinfewa John", party: "PDP", img: akinfe, partyLogo: pdp },
+  {
+    id: 1,
+    electionType: "Governorship",
+    name: "Akinfewa John",
+    party: "PDP",
+    img: akinfe,
+    partyLogo: pdp,
+  },
   {
     id: 2,
+    electionType: "Governorship",
     name: "Seyi Makinde",
     party: "APC",
     img: seyi,
@@ -257,6 +271,7 @@ export const contestants = [
   },
   {
     id: 3,
+    electionType: "Governorship",
     name: "Usman Bello",
     party: "APDI",
     img: akinfe,
@@ -264,11 +279,77 @@ export const contestants = [
   },
   {
     id: 4,
+    electionType: "Governorship",
     name: "Kola Williams",
     party: "SDP",
     img: seyi,
     partyLogo: lp,
   },
-  { id: 5, name: "Sarah Ogunleye", party: "APC", img: seyi, partyLogo: apc },
-  { id: 6, name: "Mohammed Idris", party: "PDP", img: akinfe, partyLogo: pdp },
+  {
+    id: 5,
+    electionType: "Governorship",
+    name: "Sarah Ogunleye",
+    party: "APC",
+    img: seyi,
+    partyLogo: apc,
+  },
+  {
+    id: 6,
+    electionType: "Governorship",
+    name: "Mohammed Idris",
+    party: "PDP",
+    img: akinfe,
+    partyLogo: pdp,
+  },
+];
+
+export const senate = [
+  {
+    id: 1,
+    electionType: "Senate",
+    name: "sulyman",
+    party: "PDP",
+    img: senate1,
+    partyLogo: pdp,
+  },
+  {
+    id: 2,
+    electionType: "Senate",
+    name: "damite",
+    party: "APC",
+    img: senate2,
+    partyLogo: apc,
+  },
+  {
+    id: 3,
+    electionType: "Senate",
+    name: "oluwaseyi",
+    party: "APDI",
+    img: senate3,
+    partyLogo: sdp,
+  },
+  {
+    id: 4,
+    electionType: "Senate",
+    name: "samuel",
+    party: "SDP",
+    img: senate4,
+    partyLogo: lp,
+  },
+  {
+    id: 5,
+    electionType: "Senate",
+    name: "bam",
+    party: "APC",
+    img: senate5,
+    partyLogo: apc,
+  },
+  {
+    id: 6,
+    electionType: "Senate",
+    name: "sulyman",
+    party: "PDP",
+    img: senate6,
+    partyLogo: pdp,
+  },
 ];

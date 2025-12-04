@@ -32,7 +32,7 @@ const Dashboard = () => {
           />
           <div
             onClick={handleOpenMobileAside}
-            className="fixed left-0 bottom-1/2 flex md:hidden shadow-lg w-8 h-20 bg-[#D9D9D9] rounded-r-lg items-center justify-center cursor-pointer "
+            className="fixed left-0 bottom-1/2 flex z-999 md:hidden shadow-lg w-8 h-20 bg-[#D9D9D9] rounded-r-lg items-center justify-center cursor-pointer "
           >
             <ChevronRight />
           </div>
