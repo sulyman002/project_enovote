@@ -115,14 +115,17 @@ const VoteCounted = () => {
         {/* BUTTONS */}
         <div className="flex justify-center gap-3 mt-6">
           <button
-            onClick={() => navigate("/app/dashboard")}
+            onClick={() => {
+              navigate("/app/dashboard");
+              window.scrollTo({top: 0, behavior: "smooth"})
+            }}
             className="cursor-pointer bg-[#39FF14B2] font-500 font-medium border border-gray-100 shadow hover:bg-[#39FF14B2]/60 text-gray-900 px-4 py-2 rounded"
           >
             Return to Dashboard
           </button>
           <button
             onClick={handlePrint}
-            className="border px-4 py-2 rounded bg-[#D9D9D966] font-500 font-medium hover:bg-[#D9D9D966]/80 border-gray-300 flex items-center gap-2 text-gray-900"
+            className="cursor-pointer border px-4 py-2 rounded bg-[#D9D9D966] font-500 font-medium hover:bg-[#D9D9D966]/80 border-gray-300 flex items-center gap-2 text-gray-900"
           >
             <Printer size={14} />
             <span>Print Confirmation</span>

@@ -24,7 +24,7 @@ const ProfileSetting = () => {
     console.log(data);
   };
   return (
-    <div className="py-5 px-5 md:py-20 md:px-10 w-full bg-red-400">
+    <div className="py-5 px-5 md:py-20 md:px-10 w-full ">
       <section className="border border-gray-300 rounded-xl  shadow-sm bg-white">
         <div className="w-full border-b border-gray-400 py-2 bg-[#D9D9D9] rounded-t-xl">
           <h2 className="md:text-xl text-base text-gray-900 font-semibold px-4">
@@ -62,13 +62,13 @@ const ProfileSetting = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 mt-6">
-            <button className="border px-5 py-2 rounded-lg bg-gray-100">
+          <div className="flex justify-end items-center gap-3 mt-6 w-full px-5 pb-5">
+            <button className="cursor-pointer border border-gray-300 px-5 py-2 rounded-lg bg-[#D9D9D999]">
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-green-500 text-white px-5 py-2 rounded-lg"
+              className="cursor-pointer bg-[#39FF14B2] text-gray-900 font-500 font-medium px-5 py-2 rounded-lg"
             >
               Save Changes
             </button>

@@ -19,6 +19,7 @@ import Results from "./pages/Results";
 import Profile from "./pages/Profile";
 import ProfileSetting from "./pages/AccountSettings/ProfileSetting";
 import Notifications from "./pages/AccountSettings/Notifications";
+import Biometric from "./pages/Biometric";
 
 const App = () => {
   return (
@@ -60,6 +61,7 @@ const App = () => {
             <Route path="local-govt" element={<LocalGovt />} />
           </Route>
           <Route path="education-hub" element={<EducationHub />} />
+          <Route path="biometric" element={<Biometric />} />
           <Route path="about" element={<About />} />
           <Route path="results" element={<Results />} />
           <Route path="profile" element={<Profile />}>

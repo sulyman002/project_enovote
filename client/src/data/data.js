@@ -70,6 +70,10 @@ export const links = [
     label: "Education Hub",
   },
   {
+    path: "/app/biometric",
+    label: "Biometric",
+  },
+  {
     path: "/app/about",
     label: "About",
   },
