@@ -37,7 +37,7 @@ const VoteCounted = () => {
     <div className="fixed flex items-center justify-center z-50 inset-0 bg-[#34405499]/60 backdrop-blur-[2px]">
       <div
         ref={printRef}
-        className="bg-white  mx-8 rounded-xl flex flex-col items-center justify-center gap-6 p-8"
+        className="bg-white  mx-8 my-6 rounded-xl flex flex-col items-center justify-center  p-8"
       >
         <div className="flex flex-col gap-1 w-full">
           <p className="text-base font-600 text-gray-700 font-medium mb-1">{`Step ${step}/2 : Voting Completed! Congratulations`}</p>
@@ -50,7 +50,7 @@ const VoteCounted = () => {
           </div>
         </div>
 
-        <div className="flex p-3 items-center h-50 w-50 justify-center">
+        <div className="flex p-3 items-center w-20 h-20 md:h-50 md:w-50 justify-center">
           <img src={confirm} alt="confirm icon" />
         </div>
 
