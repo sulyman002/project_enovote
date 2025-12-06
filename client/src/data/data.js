@@ -62,8 +62,8 @@ export const links = [
     label: "Home",
   },
   {
-    path: "/app/dashboard",
-    label: "Dashboard",
+    path: "/app/vote",
+    label: "Vote",
   },
   {
     path: "/app/education-hub",
@@ -73,13 +73,14 @@ export const links = [
     path: "/app/biometric",
     label: "Biometric",
   },
-  {
-    path: "/app/about",
-    label: "About",
-  },
+
   {
     path: "/app/results",
     label: "Results",
+  },
+  {
+    path: "/app/about",
+    label: "About",
   },
 ];
 
