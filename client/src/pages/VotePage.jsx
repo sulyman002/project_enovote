@@ -9,7 +9,7 @@ import DashboardAside from "../components/DashboardAside";
 import MobileDashboardMenu from "../components/MobileDashboardMenu";
 
 
-const Dashboard = () => {
+const VotePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [openAside, setOpenAside] = useState(false);
@@ -127,4 +127,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default VotePage;

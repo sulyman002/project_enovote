@@ -132,31 +132,31 @@ export const history = [
 export const electType = [
   {
     id: 1,
-    route: "/app/dashboard/presidential",
+    route: "/app/vote/presidential",
     title: "Presidential",
     icon: "House",
   },
   {
     id: 2,
-    route: "/app/dashboard/governorship",
+    route: "/app/vote/governorship",
     title: "Governorship",
     icon: "HousePlus",
   },
   {
     id: 3,
-    route: "/app/dashboard/senate",
+    route: "/app/vote/senate",
     title: "Senate",
     icon: "UsersRound",
   },
   {
     id: 4,
-    route: "/app/dashboard/house-of-rep",
+    route: "/app/vote/house-of-rep",
     title: "House of Reps",
     icon: "Building2",
   },
   {
     id: 5,
-    route: "/app/dashboard/local-govt",
+    route: "/app/vote/local-govt",
     title: "Local Govt.",
     icon: "Flag",
   },

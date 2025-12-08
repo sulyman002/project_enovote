@@ -4,22 +4,22 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import EvoteLayout from "./Layout.jsx/EvoteLayout";
 import Verify from "./pages/Verify";
 import EducationHub from "./pages/EducationHub";
-import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Register from "./pages/Register";
 import { Toaster } from "sonner";
 import PublicRoute from "./routes/PublicRoute";
 import ProtectedRoute from "./routes/ProtectedRoute";
-import Presidential from "./pages/Dashboard/Presidential";
-import Senate from "./pages/Dashboard/Senate";
-import HouseOfReps from "./pages/Dashboard/HouseOfReps";
-import LocalGovt from "./pages/Dashboard/LocalGovt";
-import Governorship from "./pages/Dashboard/Governorship";
+import Presidential from "./pages/Vote/Presidential";
+import Senate from "./pages/Vote/Senate";
+import HouseOfReps from "./pages/Vote/HouseOfReps";
+import LocalGovt from "./pages/Vote/LocalGovt";
+import Governorship from "./pages/Vote/Governorship";
 import Results from "./pages/Results";
 import Profile from "./pages/Profile";
 import ProfileSetting from "./pages/AccountSettings/ProfileSetting";
 import Notifications from "./pages/AccountSettings/Notifications";
 import Biometric from "./pages/Biometric";
+import VotePage from "./pages/VotePage";
 
 const App = () => {
   return (
@@ -52,7 +52,8 @@ const App = () => {
         >
           <Route index element={<Navigate to="home" replace />} />
           <Route path="home" element={<Home />} />
-          <Route path="dashboard" element={<Dashboard />}>
+
+          <Route path="vote" element={<VotePage />}>
             <Route index element={<Navigate to="presidential" replace />} />
             <Route path="presidential" element={<Presidential />} />
             <Route path="governorship" element={<Governorship />} />
@@ -65,7 +66,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="results" element={<Results />} />
           <Route path="profile" element={<Profile />}>
-          <Route index element={<Navigate to="profile-setting" replace />} />
+            <Route index element={<Navigate to="profile-setting" replace />} />
             <Route path="profile-setting" element={<ProfileSetting />} />
             <Route path="notification" element={<Notifications />} />
           </Route>

@@ -116,12 +116,12 @@ const VoteCounted = () => {
         <div className="flex justify-center gap-3 mt-6">
           <button
             onClick={() => {
-              navigate("/app/dashboard");
+              navigate("/app/vote");
               window.scrollTo({top: 0, behavior: "smooth"})
             }}
             className="cursor-pointer bg-[#39FF14B2] font-500 font-medium border border-gray-100 shadow hover:bg-[#39FF14B2]/60 text-gray-900 px-4 py-2 rounded"
           >
-            Return to Dashboard
+            Return to Vote
           </button>
           <button
             onClick={handlePrint}

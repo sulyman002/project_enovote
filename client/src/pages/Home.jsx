@@ -71,7 +71,7 @@ const Home = () => {
             voice.
           </p>
           <button
-          onClick={() => navigate("/app/dashboard")}
+          onClick={() => navigate("/app/vote")}
             ref={buttonRef}
             className="flex items-center rounded-lg cursor-pointer text-base text-gray-900 "
           >
