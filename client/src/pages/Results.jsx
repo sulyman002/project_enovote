@@ -1,34 +1,53 @@
-import React from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
-import ResultNav from '../components/ResultNav'
-import { electionData } from '../data/data'
-import MobileResultNav from '../components/MobileResultNav'
+import React, { useEffect, useRef, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import ResultNav from "../components/ResultNav";
+import { electionData } from "../data/data";
+import MobileResultNav from "../components/MobileResultNav";
 
 const Results = () => {
-
   const location = useLocation();
+  const stickyRef = useRef(null);
+  const [isSticky, setIsSticky] = useState(false);
 
-  const current = location.pathname === "/app/results/" ? "presidential" : location.pathname.replace("/app/results/", "");
+  useEffect(() => {
+    const handleScroll = () => {
+      const navTop = stickyRef.current.getBoundingClientRect().top;
+      console.log(stickyRef.current.getBoundingClientRect());
+
+      if (navTop <= 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const current =
+    location.pathname === "/app/results/"
+      ? "presidential"
+      : location.pathname.replace("/app/results/", "");
   const currentData = electionData[current];
-  console.log(currentData);
-  
 
   return (
-    <div className='flex flex-col gap-4 py-8 mx-auto container w-full px-5 md:px-0'>
+    <div className="flex flex-col gap-4 py-8 mx-auto container w-full px-5 md:px-0">
       <div className="flex flex-col gap-3">
         <h1 className="text-2xl font-bold">{currentData?.title}</h1>
-      <p className="text-gray-500 text-sm">
-        Last Updated: {currentData?.lastUpdated}
-      </p>
+        <p className="text-gray-500 text-sm">
+          Last Updated: {currentData?.lastUpdated}
+        </p>
       </div>
       {/* Nav */}
-     <ResultNav />
-     <MobileResultNav />
-     {/* Outlet */}
+      <ResultNav />
+      {/* Mobile Nav */}
+      <div className="" ref={stickyRef}>
+        <MobileResultNav isSticky={isSticky} />
+      </div>
+      {/* Outlet */}
       <Outlet />
-      
     </div>
-  )
-}
+  );
+};
 
-export default Results
+export default Results;
