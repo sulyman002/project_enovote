@@ -257,6 +257,7 @@ export const accountSettings = [
     icon: "BellDot",
   },
 ];
+
 export const contestants = [
   {
     id: 1,
@@ -358,3 +359,104 @@ export const senate = [
     partyLogo: pdp,
   },
 ];
+
+
+export const resultNavTab = [
+  { name: "Presidential", path: "/app/results/presidential" },
+  { name: "Governorship", path: "/app/results/governorship" },
+  { name: "Senate", path: "/app/results/senate" },
+  { name: "House of Rep", path: "/app/results/houseofrep" },
+  { name: "Local Govt", path: "/app/results/localgov" },
+];
+// Election Data
+export const electionData = {
+  presidential: {
+    title: "Presidential Election 2025",
+    lastUpdated: "21st November, 2025, 3:56pm",
+    stats: [
+      { label: "Voter Turnout", value: "80.6%", sub: "+10% from 2023" },
+      { label: "Total Votes", value: "50.7M", sub: "Out of 62.9M Registered" },
+      { label: "Polling Unit Report", value: "75%", sub: "3000 of 4000" },
+      { label: "Leading Candidate", value: "JANETH CHISOM", party: "ADD" },
+    ],
+    results: [
+      { name: "JANETH CHISOM (ADD)", percent: 52 },
+      { name: "AKINFEWA JOHN (PPC)", percent: 38 },
+      { name: "ALICE FELICIA (LPP)", percent: 7 },
+      { name: "USMAN RABIU (ADPP)", percent: 3 },
+    ],
+    showMap: true,
+  },
+
+  governorship: {
+    title: "Governorship Election 2025",
+    lastUpdated: "21st November, 2025, 3:56pm",
+    stats: [
+      { label: "Voter Turnout", value: "74%", sub: "+3% from 2023" },
+      { label: "Total Votes", value: "8.3M", sub: "Out of 12M Registered" },
+      { label: "Polling Unit Report", value: "60%", sub: "800 of 1400" },
+      { label: "Leading Candidate", value: "HAMZA BELLO", party: "APC" },
+    ],
+    results: [
+      { name: "HAMZA BELLO (APC)", percent: 48 },
+      { name: "FEMI JAMES (PDP)", percent: 42 },
+      { name: "LARA SULE (LP)", percent: 8 },
+      { name: "BALA MOHAMMED (NNPP)", percent: 2 },
+    ],
+    showMap: false,
+  },
+
+  senate: {
+    title: "Senate Election 2025",
+    lastUpdated: "21st November, 2025, 3:56pm",
+    stats: [
+      { label: "Voter Turnout", value: "65%", sub: "+1.5% from 2023" },
+      { label: "Total Votes", value: "3.9M", sub: "Out of 6.1M Registered" },
+      { label: "Polling Unit Report", value: "69%", sub: "480 of 690" },
+      { label: "Leading Candidate", value: "JOHN HILLARY", party: "SDP" },
+    ],
+    results: [
+      { name: "JOHN HILLARY (SDP)", percent: 51 },
+      { name: "MUSA WALI (APC)", percent: 31 },
+      { name: "SARAH IGWE (LP)", percent: 12 },
+      { name: "LUKMAN TAIWO (PDP)", percent: 6 },
+    ],
+    showMap: false,
+  },
+
+  houseofrep: {
+    title: "House of Rep Election 2025",
+    lastUpdated: "21st November, 2025, 3:56pm",
+    stats: [
+      { label: "Voter Turnout", value: "70%", sub: "+4% from 2023" },
+      { label: "Total Votes", value: "6M", sub: "Out of 9M Registered" },
+      { label: "Polling Unit Report", value: "77%", sub: "900 of 1200" },
+      { label: "Leading Candidate", value: "AJAYI BOLU", party: "PDP" },
+    ],
+    results: [
+      { name: "AJAYI BOLU (PDP)", percent: 49 },
+      { name: "KAYODE JOHN (APC)", percent: 43 },
+      { name: "LUCY AFOLABI (LP)", percent: 5 },
+      { name: "SANI ABDUL (NNPP)", percent: 3 },
+    ],
+    showMap: false,
+  },
+
+  localgov: {
+    title: "Local Government Election 2025",
+    lastUpdated: "21st November, 2025, 3:56pm",
+    stats: [
+      { label: "Voter Turnout", value: "68%", sub: "+2% from 2023" },
+      { label: "Total Votes", value: "1.8M", sub: "Out of 2.4M Registered" },
+      { label: "Polling Unit Report", value: "52%", sub: "300 of 580" },
+      { label: "Leading Candidate", value: "TUNDE ADE", party: "LP" },
+    ],
+    results: [
+      { name: "TUNDE ADE (LP)", percent: 55 },
+      { name: "MUKAILA BELLO (APC)", percent: 29 },
+      { name: "MARY THOMAS (PDP)", percent: 12 },
+      { name: "AHMED SIDI (NNPP)", percent: 4 },
+    ],
+    showMap: false,
+  },
+};
