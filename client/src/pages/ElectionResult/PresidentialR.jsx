@@ -15,7 +15,7 @@ const PresidentialR = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
 
         {/* MAP */}
-        <div className="lg:col-span-2 bg-white rounded-xl p-4 shadow">
+        <div className="lg:col-span-2 bg-[#F5F6FA] rounded-xl p-4 shadow">
           <h2 className="font-bold mb-2">Results By State</h2>
           <ElectionMap />
         </div>
