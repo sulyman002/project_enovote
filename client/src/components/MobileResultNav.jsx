@@ -1,12 +1,16 @@
 import { ArrowDown, ArrowDownToDot, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// Nav Data
+import { resultNavTab } from "../data/data";
+import { Link, useLocation } from "react-router-dom";
 
 const MobileResultNav = ({ isSticky }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
-  const items = ["Presidential", "Governorship", "Senate", "House"];
+
   return (
     <div
       className={`
@@ -29,12 +33,30 @@ const MobileResultNav = ({ isSticky }) => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full mt-2 w-full bg-white shadow-lg rounded-lg overflow-hidden z-50"
+            className="absolute top-full mt-2 w-full bg-white shadow-lg rounded-lg overflow-hidden z-50 flex flex-col"
           >
-            {items.map((item, index) => (
+            {resultNavTab.map((link, index) => (
+              <Link
+                to={link.path}
+                key={index}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className={` px-4 py-3 hover:text-[#28C308]/50 font-bold ${
+                  link.path === location.pathname
+                    ? "text-[#28C308]"
+                    : "text-gray-600"
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            {/* {resultNavTab.map((item, index) => (
               <div
                 key={index}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className=" hover:bg-gray-100 cursor-pointer"
                 onClick={() => {
                   console.log(item); // handle click
                   setIsOpen(false); // close dropdown after click
@@ -42,7 +64,7 @@ const MobileResultNav = ({ isSticky }) => {
               >
                 {item}
               </div>
-            ))}
+            ))} */}
           </motion.div>
         )}
       </AnimatePresence>
