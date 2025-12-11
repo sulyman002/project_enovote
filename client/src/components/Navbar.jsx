@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     setItem("user", null);
-    navigate("/verify");
+    navigate("/auth/verify");
     toast.success("Logout successful. Stay safe.");
   };
 
