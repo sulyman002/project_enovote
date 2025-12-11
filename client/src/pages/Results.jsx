@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import ResultNav from '../components/ResultNav'
 import { electionData } from '../data/data'
+import MobileResultNav from '../components/MobileResultNav'
 
 const Results = () => {
 
@@ -22,6 +23,7 @@ const Results = () => {
       </div>
       {/* Nav */}
      <ResultNav />
+     <MobileResultNav />
      {/* Outlet */}
       <Outlet />
       
