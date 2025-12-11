@@ -31,7 +31,7 @@ const Register = () => {
       setItem("userDetails", users);
 
       toast.success("Account created! Please login.");
-      navigate("/verify");
+      navigate("/auth/otp");
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong!");
@@ -47,7 +47,7 @@ const Register = () => {
       {/* Left Image Section */}
       <div className="w-full h-full">
         <img
-        //   src={authImg}
+          //   src={authImg}
           alt="Authentication"
           className="w-full h-full object-cover"
         />
@@ -70,20 +70,22 @@ const Register = () => {
           <div className="flex gap-2 mb-4 bg-[#D1CECE] rounded-md p-1">
             <div
               onClick={() => {
-                navigate("/verify");
+                navigate("/auth/verify");
               }}
               className={`flex-1 ${
-                location.pathname === "/verify" ? "bg-white text-gray-900 shadow" : ""
+                location.pathname === "/auth/verify"
+                  ? "bg-white text-gray-900 shadow"
+                  : ""
               } text-39FF14 py-2 rounded-md font-semibold text-center cursor-pointer`}
             >
               Verify
             </div>
             <div
               onClick={() => {
-                navigate("/");
+                navigate("/auth/register");
               }}
               className={`flex-1 ${
-                location.pathname === "/" ? "bg-white text-gray-900 shadow" : ""
+                location.pathname === "/auth/register" ? "bg-white text-gray-900 shadow" : ""
               }  py-2 rounded-md font-semibold cursor-pointer text-center`}
             >
               Register
@@ -95,6 +97,48 @@ const Register = () => {
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-6"
           >
+            <div className="flex items-center gap-3 w-full">
+              {/* First name */}
+              <div className="flex flex-col gap-1 w-full">
+                <label htmlFor="firstName" text-gray-700>
+                  First Name
+                </label>
+                <input
+                  {...register("firstName", {
+                    required: "This field is required",
+                  })}
+                  id="firstName"
+                  type="text"
+                  placeholder="Firstname..."
+                  className="outline-none py-3 border border-gray-400 pl-2 rounded-md placeholder:text-gray-500"
+                />
+                {errors.firstName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.firstName.message}
+                  </p>
+                )}
+              </div>
+              {/* Last Name */}
+              <div className="flex flex-col gap-1 w-full">
+                <label htmlFor="firstName" text-gray-700>
+                  Last Name
+                </label>
+                <input
+                  {...register("lastName", {
+                    required: "This field is required",
+                  })}
+                  id="lastName"
+                  type="text"
+                  placeholder="Lastname..."
+                  className="outline-none py-3 border border-gray-400 pl-2 rounded-md placeholder:text-gray-500"
+                />
+                {errors.lastName && (
+                  <p className="text-red-500 text-sm">
+                    {errors.lastName.message}
+                  </p>
+                )}
+              </div>
+            </div>
             <div className="flex flex-col w-full gap-2">
               <div className="flex items-center text-gray-700">
                 <p className="text-sm font-medium  flex-1">Verification ID</p>
@@ -166,7 +210,7 @@ const Register = () => {
                 isSubmitting
                   ? "bg-[#39FF14B2]/50 cursor-not-allowed"
                   : "bg-[#39FF14B2] cursor-pointer"
-              }  w-full   text-white py-3 rounded-md font-semibold shadow`}
+              }  w-full   text-gray-900 py-3 rounded-md font-semibold shadow`}
             >
               {isSubmitting ? "Registering" : " Register"}
             </button>

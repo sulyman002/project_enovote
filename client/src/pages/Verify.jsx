@@ -65,10 +65,10 @@ const Verify = () => {
           <div className="flex gap-2 mb-4 bg-[#D1CECE] rounded-md p-1">
             <div
               onClick={() => {
-                navigate("/verify");
+                navigate("/auth/verify");
               }}
               className={`flex-1 ${
-                location.pathname === "/verify"
+                location.pathname === "/auth/verify"
                   ? "bg-white text-gray-900 shadow"
                   : ""
               } text-39FF14 py-2 rounded-md font-semibold text-center cursor-pointer`}
@@ -77,10 +77,10 @@ const Verify = () => {
             </div>
             <div
               onClick={() => {
-                navigate("/");
+                navigate("/auth/register");
               }}
               className={`flex-1 ${
-                location.pathname === "/" ? "bg-white text-gray-900 shadow" : ""
+                location.pathname === "/auth/register" ? "bg-white text-gray-900 shadow" : ""
               }  py-2 rounded-md font-semibold cursor-pointer text-center`}
             >
               Register

@@ -36,28 +36,34 @@ import GovernorshipR from "./pages/ElectionResult/GovernorshipR";
 import SenateR from "./pages/ElectionResult/SenateR";
 import HouseOfRepR from "./pages/ElectionResult/HouseOfRepR";
 import LocalGovtR from "./pages/ElectionResult/LocalGovtR";
+import Otp from "./pages/Otp";
 
 const App = () => {
   return (
     <div>
       <Toaster position="top-right" richColors />
       <Routes>
-        <Route
-          path="verify"
-          element={
-            <PublicRoute>
-              <Verify />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          }
-        />
+        <Route path="/" element={<Navigate to="/auth/verify" replace />} />
+        <Route path="auth">
+          <Route index element={<Navigate to="verify" replace />} />
+          <Route
+            path="verify"
+            element={
+              <PublicRoute>
+                <Verify />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route path="otp" element={<Otp />} />
+        </Route>
         <Route
           path="app"
           element={

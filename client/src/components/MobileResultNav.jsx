@@ -53,18 +53,7 @@ const MobileResultNav = ({ isSticky }) => {
               </Link>
             ))}
 
-            {/* {resultNavTab.map((item, index) => (
-              <div
-                key={index}
-                className=" hover:bg-gray-100 cursor-pointer"
-                onClick={() => {
-                  console.log(item); // handle click
-                  setIsOpen(false); // close dropdown after click
-                }}
-              >
-                {item}
-              </div>
-            ))} */}
+            
           </motion.div>
         )}
       </AnimatePresence>
